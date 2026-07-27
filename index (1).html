@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Малка Трапеза · Baby Table — 11mo, egg-free, seasonal (BG)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f2f6ee;
+    --card: #fffdf8;
+    --ink: #1f3a2e;
+    --ink-soft: #3f5a4c;
+    --apricot: #e2924b;
+    --apricot-dark: #c97634;
+    --plum: #6b4266;
+    --line: #dde5d4;
+    --ok: #4c7a54;
+    --warn: #b5482a;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Nunito Sans', sans-serif;
+    line-height:1.5;
+    padding-bottom:80px;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--ink);
+    margin:0;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+
+  /* HEADER */
+  header{
+    background:linear-gradient(180deg, #26432f 0%, #1f3a2e 100%);
+    color:#f2f6ee;
+    padding:28px 0 100px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  header .wrap{position:relative;z-index:2;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:12px;
+    font-weight:800;
+    color:#c7dcc0;
+  }
+  header h1{font-size:clamp(28px,4vw,42px);color:#fff;margin-top:6px;}
+  header p.sub{color:#cfe0c9;max-width:560px;margin-top:10px;font-size:15px;}
+  .caution{
+    margin-top:20px;
+    background:rgba(226,146,75,.14);
+    border:1px solid rgba(226,146,75,.45);
+    border-radius:10px;
+    padding:12px 16px;
+    font-size:13.5px;
+    color:#ffe9d2;
+    max-width:640px;
+  }
+  .caution b{color:#ffd9ae;}
+
+  /* SEASON WHEEL */
+  .wheel-panel{
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:190px;
+    height:190px;
+  }
+  @media (max-width:820px){ .wheel-panel{display:none;} }
+
+  nav.tabs{
+    max-width:1080px;
+    margin:-56px auto 0 auto;
+    padding:0 20px;
+    display:flex;
+    gap:10px;
+    position:relative;
+    z-index:3;
+  }
+  .tab-btn{
+    flex:1;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px 14px 0 0;
+    padding:16px 18px;
+    font-family:'Fraunces',serif;
+    font-size:17px;
+    font-weight:600;
+    color:var(--ink-soft);
+    cursor:pointer;
+    box-shadow:0 6px 18px rgba(31,58,46,.12);
+    transition:.15s;
+  }
+  .tab-btn.active{color:var(--ink);background:#fff;box-shadow:0 8px 22px rgba(31,58,46,.18);}
+  .tab-btn span{display:block;font-family:'Nunito Sans',sans-serif;font-weight:600;font-size:12px;color:var(--apricot-dark);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;}
+
+  main{background:#fff;border-radius:0 0 16px 16px;box-shadow:0 10px 30px rgba(31,58,46,.10);}
+  .panel{max-width:1080px;margin:0 auto;padding:28px 20px 40px 20px;}
+
+  /* SEASONAL TAB */
+  .month-row{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px 0;}
+  .month-chip{
+    border:1px solid var(--line);
+    background:#fbfaf5;
+    padding:7px 13px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+    color:var(--ink-soft);
+    cursor:pointer;
+  }
+  .month-chip.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .produce-line{font-size:13.5px;color:var(--ink-soft);margin-bottom:8px;}
+  .produce-line b{color:var(--plum);}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;margin-top:14px;}
+  .card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 16px 14px 16px;
+    background:var(--card);
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .card h3{font-size:18px;}
+  .tagrow{display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:3px 9px;border-radius:999px;}
+  .tag.texture{background:#eef3e6;color:var(--ok);}
+  .tag.season{background:#f4e6ee;color:var(--plum);}
+  .card .ing{font-size:13.5px;color:var(--ink-soft);}
+  .card .ing b{color:var(--ink);}
+  .card details{font-size:13.5px;color:var(--ink-soft);}
+  .card summary{cursor:pointer;font-weight:700;color:var(--apricot-dark);margin-top:2px;}
+  .missing{color:var(--warn);font-weight:700;}
+  .full-match{color:var(--ok);font-weight:800;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;}
+
+  /* FRIDGE TAB */
+  .fridge-groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:16px;}
+  .fg h4{font-family:'Fraunces',serif;font-size:14px;color:var(--plum);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;}
+  .chip-check{
+    display:inline-flex;align-items:center;gap:6px;
+    border:1px solid var(--line);border-radius:999px;
+    padding:6px 12px;margin:0 6px 6px 0;font-size:13px;cursor:pointer;background:#fbfaf5;
+  }
+  .chip-check.on{background:var(--ok);border-color:var(--ok);color:#fff;}
+  .fridge-results{margin-top:26px;border-top:1px dashed var(--line);padding-top:20px;}
+  .empty-note{color:var(--ink-soft);font-size:14px;font-style:italic;}
+
+  footer{max-width:1080px;margin:24px auto;padding:0 20px;color:var(--ink-soft);font-size:12.5px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wheel-panel" id="wheelPanel"></div>
+  <div class="wrap">
+    <div class="eyebrow">Малка Трапеза · Baby Table</div>
+    <h1>Egg-free meals for an 11-month-old, built around Bulgaria's growing season.</h1>
+    <p class="sub">Ready-made ideas for what's fresh right now, or tell the app what's already in your fridge and it will draft a meal from that.</p>
+    <div class="caution">
+      <b>Before you rely on this:</b> egg is strictly excluded throughout the app, and all recipes use age-appropriate soft/mashed or safe finger-food textures. It doesn't account for post-neuroblastoma-surgery specifics — calorie/protein targets, food-safety precautions if immune status is still recovering, or reintroducing textures after a hospital stay. Run the plan past your child's oncology dietitian or paediatrician, especially in the first months after surgery.
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="seasonal" onclick="switchTab('seasonal')">🌱 Seasonal picks<span>What's fresh this month</span></button>
+  <button class="tab-btn" data-tab="fridge" onclick="switchTab('fridge')">🧺 Build from my fridge<span>Pick what you have</span></button>
+</nav>
+
+<main>
+  <div class="panel" id="seasonalPanel">
+    <div class="month-row" id="monthRow"></div>
+    <div class="produce-line" id="produceLine"></div>
+    <div class="grid" id="seasonalGrid"></div>
+  </div>
+
+  <div class="panel" id="fridgePanel" style="display:none;">
+    <p style="color:var(--ink-soft);font-size:14.5px;">Tick everything you currently have at home. The app will show full matches first, then close matches with what's missing.</p>
+    <div class="fridge-groups" id="fridgeGroups"></div>
+    <div class="fridge-results" id="fridgeResults">
+      <p class="empty-note">Select a few ingredients above to see matching meals.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  Self-hosted, no backend, no tracking, nothing leaves the browser. Recipes are general infant-feeding guidance, not medical or oncology-nutrition advice.
+</footer>
+
+<script>
+/* ---------- DATA ---------- */
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+// Bulgarian seasonal produce by month (fresh/local availability, not greenhouse imports)
+const SEASON = {
+  January:["pumpkin/squash","carrot","potato","leek","cabbage","apple (stored)","quince (stored)"],
+  February:["pumpkin/squash","carrot","potato","leek","cabbage","apple (stored)"],
+  March:["spinach","leek","carrot","cabbage","spring onion","radish"],
+  April:["spinach","lettuce","spring onion","radish","peas (early)","new potato"],
+  May:["peas","lettuce","spinach","strawberry","radish","zucchini (early)","cherry (late)"],
+  June:["zucchini","cherry","apricot","green beans","carrot","new potato","peas"],
+  July:["tomato","pepper","zucchini","eggplant","peach","apricot","plum","green beans","corn","watermelon"],
+  August:["tomato","pepper","eggplant","peach","plum","melon","watermelon","corn","grape (early)"],
+  September:["tomato","pepper","grape","apple","pear","pumpkin/squash","cauliflower"],
+  October:["pumpkin/squash","apple","pear","quince","grape","leek","cauliflower","broccoli"],
+  November:["pumpkin/squash","apple","pear","quince","leek","cabbage","cauliflower"],
+  December:["pumpkin/squash","carrot","potato","leek","cabbage","apple (stored)","quince (stored)"]
+};
+
+// Ingredient categories for the "fridge" tab
+const FRIDGE_GROUPS = {
+  "Vegetables": ["pumpkin/squash","carrot","potato","leek","cabbage","spinach","zucchini","pepper","tomato","eggplant","cauliflower","broccoli","peas","green beans","corn","sweet potato"],
+  "Fruit": ["apple","pear","quince","apricot","peach","plum","strawberry","banana","melon","watermelon","grape"],
+  "Grains & legumes": ["rice","oats","millet","semolina","red lentils","yellow lentils","bread (soft)","pasta (small shapes)"],
+  "Dairy & protein": ["yogurt (plain)","kashkaval/soft cheese","cottage cheese","chicken breast","turkey","beef mince","white fish"],
+  "Pantry": ["olive oil","sunflower oil","cinnamon","dill","parsley"]
+};
+
+// Recipes. season: array of months they're best made with fresh local produce (still fine off-season with stored/frozen).
+const RECIPES = [
+  {
+    name:"Pumpkin & carrot mash with cinnamon",
+    season:["January","February","November","December","October"],
+    texture:"Smooth mash",
+    ingredients:["pumpkin/squash","carrot","olive oil","cinnamon"],
+    steps:"Steam diced pumpkin and carrot 12–15 min until very soft. Mash or blend with a little cooking water and a drop of olive oil. Pinch of cinnamon, no added sugar."
+  },
+  {
+    name:"Leek & potato soft mash",
+    season:["January","February","October","November","December"],
+    texture:"Smooth mash",
+    ingredients:["leek","potato","olive oil"],
+    steps:"Sweat sliced leek (white part) in a little oil, add diced potato and water, simmer until soft, mash or blend to a smooth texture."
+  },
+  {
+    name:"Braised cabbage & carrot with rice",
+    season:["January","February","November","December"],
+    texture:"Soft minced / lumpy-mash",
+    ingredients:["cabbage","carrot","rice","olive oil"],
+    steps:"Cook rice soft. Finely shred cabbage and carrot, braise gently in water/oil until very tender, mix through the rice, mash lightly with a fork."
+  },
+  {
+    name:"Apple & quince stewed compote",
+    season:["January","February","October","November","December"],
+    texture:"Smooth purée",
+    ingredients:["apple","quince","cinnamon"],
+    steps:"Peel, core and dice; simmer with a splash of water until soft (quince needs longer than apple). Blend or mash. No added sugar — both fruits sweeten well on their own."
+  },
+  {
+    name:"Spinach & potato mash",
+    season:["March","April"],
+    texture:"Smooth mash",
+    ingredients:["spinach","potato","olive oil"],
+    steps:"Boil potato until soft. Wilt fresh spinach in a splash of water 2–3 min. Mash together with a little oil until smooth."
+  },
+  {
+    name:"Pea & mint soft purée",
+    season:["April","May","June"],
+    texture:"Smooth purée",
+    ingredients:["peas","olive oil"],
+    steps:"Boil peas 4–5 min until tender, blend with a little cooking water and oil until smooth (sieve if you want it silkier for younger palates)."
+  },
+  {
+    name:"Zucchini & rice soft mash",
+    season:["May","June","July"],
+    texture:"Soft mash",
+    ingredients:["zucchini","rice","olive oil"],
+    steps:"Cook rice soft. Steam diced zucchini until very tender. Mash together lightly, leaving a bit of texture if baby is used to lumps."
+  },
+  {
+    name:"Apricot & millet breakfast mash",
+    season:["June","July"],
+    texture:"Soft mash",
+    ingredients:["apricot","millet"],
+    steps:"Cook millet soft in water until porridge-like. Stew peeled, pitted apricot until soft, mash through — naturally sweet, no sugar needed."
+  },
+  {
+    name:"Green bean & potato soft mash",
+    season:["June","July","August"],
+    texture:"Soft mash / finger food",
+    ingredients:["green beans","potato","olive oil"],
+    steps:"Steam trimmed green beans and diced potato until very soft. For finger food, serve beans whole and very soft (squashes easily between two fingers) with mashed potato alongside."
+  },
+  {
+    name:"Slow-cooked tomato, pepper & zucchini (mini lyutenitsa style, no egg/no salt)",
+    season:["July","August","September"],
+    texture:"Soft mash",
+    ingredients:["tomato","pepper","zucchini","olive oil"],
+    steps:"Peel and deseed tomato and pepper. Stew all three vegetables slowly with a little oil until completely soft and jammy, about 25–30 min. Mash to desired texture. No salt, no sugar."
+  },
+  {
+    name:"Peach & plum stewed fruit",
+    season:["July","August"],
+    texture:"Smooth purée",
+    ingredients:["peach","plum"],
+    steps:"Peel, pit and dice; stew gently in a splash of water until soft, mash or blend. Great mixed into plain yogurt for older 11-month palates if dairy is tolerated."
+  },
+  {
+    name:"Corn & carrot soft mash",
+    season:["July","August","September"],
+    texture:"Soft mash",
+    ingredients:["corn","carrot","olive oil"],
+    steps:"Steam fresh corn kernels and diced carrot until very soft, blend or mash well (corn skins can be a choking risk whole at this age — always mash, don't serve loose kernels)."
+  },
+  {
+    name:"Grape & pear soft compote",
+    season:["September","October"],
+    texture:"Smooth purée",
+    ingredients:["grape","pear"],
+    steps:"Peel and deseed grapes fully (whole/halved grapes are a choking hazard at this age). Stew with peeled diced pear until soft, mash to a smooth purée."
+  },
+  {
+    name:"Cauliflower & potato soft mash",
+    season:["September","October","November"],
+    texture:"Smooth mash",
+    ingredients:["cauliflower","potato","olive oil"],
+    steps:"Steam cauliflower florets and diced potato until very tender, mash together with a little oil until smooth."
+  },
+  {
+    name:"Broccoli & leek soft mash",
+    season:["October","November"],
+    texture:"Smooth mash",
+    ingredients:["broccoli","leek","olive oil"],
+    steps:"Steam broccoli florets and softened leek until tender, mash or blend with a little cooking water."
+  },
+  {
+    name:"Lentil & carrot soft dhal-style mash",
+    season:["January","February","March","October","November","December"],
+    texture:"Soft mash",
+    ingredients:["red lentils","carrot","olive oil"],
+    steps:"Simmer rinsed red lentils with diced carrot in water until both fall apart, about 20 min. Mash to a soft, slightly textured consistency — good iron-rich option, egg-free by nature."
+  },
+  {
+    name:"Chicken, carrot & potato soft stew",
+    season:["January","February","March","October","November","December"],
+    texture:"Soft mash / minced",
+    ingredients:["chicken breast","carrot","potato","olive oil"],
+    steps:"Poach chicken breast until cooked through, shred finely or blend. Cook carrot and potato soft, mash. Combine — a protein-rich egg-free option."
+  },
+  {
+    name:"White fish, potato & pea soft mash",
+    season:["April","May","June"],
+    texture:"Soft mash",
+    ingredients:["white fish","potato","peas","olive oil"],
+    steps:"Poach or steam boneless white fish until opaque, check thoroughly for bones, flake finely. Mash with soft potato and peas."
+  },
+  {
+    name:"Yogurt, apple & cinnamon breakfast bowl",
+    season:["January","February","March","September","October","November","December"],
+    texture:"Smooth / spoonable",
+    ingredients:["yogurt (plain)","apple","cinnamon"],
+    steps:"Stew and mash apple until soft, cool completely, swirl through plain yogurt with a pinch of cinnamon. Skip if dairy hasn't been introduced yet or is also restricted."
+  },
+  {
+    name:"Oat & banana soft porridge",
+    season:MONTHS.slice(),
+    texture:"Soft mash",
+    ingredients:["oats","banana"],
+    steps:"Cook oats soft in water (or milk if tolerated) until porridge consistency. Mash ripe banana through once cooled. Naturally sweet, egg-free, available year-round."
+  }
+];
+
+/* ---------- HELPERS ---------- */
+function ingredientLabel(x){return x;}
+
+/* ---------- SEASON WHEEL (small SVG) ---------- */
+function drawWheel(activeMonthIdx){
+  const size=190, r=78, cx=size/2, cy=size/2;
+  let parts="";
+  for(let i=0;i<12;i++){
+    const startA = (i/12)*2*Math.PI - Math.PI/2;
+    const endA = ((i+1)/12)*2*Math.PI - Math.PI/2;
+    const x1=cx+r*Math.cos(startA), y1=cy+r*Math.sin(startA);
+    const x2=cx+r*Math.cos(endA), y2=cy+r*Math.sin(endA);
+    const isActive = i===activeMonthIdx;
+    parts += `<path d="M${cx},${cy} L${x1.toFixed(2)},${y1.toFixed(2)} A${r},${r} 0 0,1 ${x2.toFixed(2)},${y2.toFixed(2)} Z"
+      fill="${isActive? '#e2924b':'rgba(255,255,255,0.08)'}" stroke="#1f3a2e" stroke-width="1"/>`;
+  }
+  document.getElementById('wheelPanel').innerHTML = `
+    <svg viewBox="0 0 ${size} ${size}" width="100%" height="100%">
+      ${parts}
+      <circle cx="${cx}" cy="${cy}" r="30" fill="#1f3a2e" stroke="#f2f6ee" stroke-width="1.5"/>
+      <text x="${cx}" y="${cy+5}" text-anchor="middle" fill="#f2f6ee" font-family="Fraunces, serif" font-size="13" font-weight="600">${MONTHS[activeMonthIdx].slice(0,3)}</text>
+    </svg>`;
+}
+
+/* ---------- TABS ---------- */
+function switchTab(tab){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active', b.dataset.tab===tab));
+  document.getElementById('seasonalPanel').style.display = tab==='seasonal' ? 'block':'none';
+  document.getElementById('fridgePanel').style.display = tab==='fridge' ? 'block':'none';
+}
+
+/* ---------- SEASONAL TAB ---------- */
+let selectedMonthIdx = new Date().getMonth();
+
+function renderMonthRow(){
+  const row=document.getElementById('monthRow');
+  row.innerHTML='';
+  MONTHS.forEach((m,i)=>{
+    const chip=document.createElement('div');
+    chip.className='month-chip'+(i===selectedMonthIdx?' active':'');
+    chip.textContent=m.slice(0,3);
+    chip.onclick=()=>{selectedMonthIdx=i; renderSeasonal();};
+    row.appendChild(chip);
+  });
+}
+
+function renderSeasonal(){
+  renderMonthRow();
+  drawWheel(selectedMonthIdx);
+  const month = MONTHS[selectedMonthIdx];
+  document.getElementById('produceLine').innerHTML = `<b>In season now:</b> ${SEASON[month].join(", ")}`;
+  const grid=document.getElementById('seasonalGrid');
+  grid.innerHTML='';
+  const matches = RECIPES.filter(r=>r.season.includes(month));
+  const list = matches.length ? matches : RECIPES.filter(r=>r.season.length===12);
+  list.forEach(r=>grid.appendChild(recipeCard(r)));
+}
+
+function recipeCard(r, missingList){
+  const el=document.createElement('div');
+  el.className='card';
+  const missingHtml = missingList && missingList.length
+    ? `<div class="missing">Missing: ${missingList.join(", ")}</div>`
+    : (missingList ? `<div class="full-match">✓ You have everything</div>` : "");
+  el.innerHTML = `
+    <h3>${r.name}</h3>
+    <div class="tagrow">
+      <span class="tag texture">${r.texture}</span>
+      ${r.season.length<12 ? `<span class="tag season">${r.season.map(s=>s.slice(0,3)).join("/")}</span>`:'<span class="tag season">Year-round</span>'}
+    </div>
+    <div class="ing"><b>Ingredients:</b> ${r.ingredients.join(", ")}</div>
+    ${missingHtml}
+    <details><summary>How to prepare</summary>${r.steps}</details>
+  `;
+  return el;
+}
+
+/* ---------- FRIDGE TAB ---------- */
+let haveSet = new Set();
+
+function renderFridgeGroups(){
+  const wrap=document.getElementById('fridgeGroups');
+  wrap.innerHTML='';
+  Object.entries(FRIDGE_GROUPS).forEach(([group, items])=>{
+    const col=document.createElement('div');
+    col.className='fg';
+    col.innerHTML=`<h4>${group}</h4>`;
+    items.forEach(item=>{
+      const chip=document.createElement('span');
+      chip.className='chip-check';
+      chip.textContent=item;
+      chip.onclick=()=>{
+        if(haveSet.has(item)){haveSet.delete(item); chip.classList.remove('on');}
+        else{haveSet.add(item); chip.classList.add('on');}
+        renderFridgeResults();
+      };
+      col.appendChild(chip);
+    });
+    wrap.appendChild(col);
+  });
+}
+
+function renderFridgeResults(){
+  const out=document.getElementById('fridgeResults');
+  if(haveSet.size===0){
+    out.innerHTML='<p class="empty-note">Select a few ingredients above to see matching meals.</p>';
+    return;
+  }
+  const scored = RECIPES.map(r=>{
+    const missing = r.ingredients.filter(i=>!haveSet.has(i));
+    return {r, missing, matchCount: r.ingredients.length-missing.length};
+  }).filter(x=>x.matchCount>0)
+    .sort((a,b)=> a.missing.length - b.missing.length || b.matchCount - a.matchCount);
+
+  if(scored.length===0){
+    out.innerHTML='<p class="empty-note">No overlap yet with the recipe list — try adding a vegetable or a grain.</p>';
+    return;
+  }
+  const full = scored.filter(x=>x.missing.length===0);
+  const partial = scored.filter(x=>x.missing.length>0 && x.missing.length<=2);
+
+  let html='';
+  if(full.length){
+    html += `<h3 style="margin-bottom:10px;">Ready to make now</h3><div class="grid" id="fullGrid"></div>`;
+  }
+  if(partial.length){
+    html += `<h3 style="margin:22px 0 10px 0;">Just missing a couple things</h3><div class="grid" id="partialGrid"></div>`;
+  }
+  out.innerHTML = html || '<p class="empty-note">Nothing close yet — add more ingredients.</p>';
+  if(full.length){
+    const g=document.getElementById('fullGrid');
+    full.forEach(x=>g.appendChild(recipeCard(x.r, [])));
+  }
+  if(partial.length){
+    const g=document.getElementById('partialGrid');
+    partial.forEach(x=>g.appendChild(recipeCard(x.r, x.missing)));
+  }
+}
+
+/* ---------- INIT ---------- */
+renderSeasonal();
+renderFridgeGroups();
+renderFridgeResults();
+</script>
+</body>
+</html>
